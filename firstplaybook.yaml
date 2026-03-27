@@ -1,0 +1,5 @@
+- name: ping to all servers
+  hosts: all
+  tasks:
+    - name: pinging to all servers
+      ping:

@@ -1,0 +1,10 @@
+- name: Creating file playbook
+  hosts: all
+  become: true
+  tasks:
+    - name: creating file using touch module
+      file:
+        path: /tmp/krishna.txt
+        state: touch
+        mode: 700
+
