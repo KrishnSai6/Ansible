@@ -1,0 +1,12 @@
+- name: copy by template module
+  hosts: all
+  gather_facts: No
+  become: true
+  vars:
+    name: "krishna"
+    place: "nellore"
+  tasks:
+    - name: template module
+      template:
+        src: vars.html
+        dest: /tmp/vars.html
