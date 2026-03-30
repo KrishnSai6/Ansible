@@ -1,0 +1,16 @@
+- name: condition upadate
+  hosts: all
+  become: true
+  gather_facts: true
+  tasks:
+    - name: update with yum in redhat
+      yum:
+        name: '*'
+        state: latest
+      when: ansible_distribution == "RedHat"
+    - name: update with apt in ubuntu
+      apt:
+        update_cache: yes
+        upgrade: dist
+      when: ansible_distribution == "Ubuntu"
+
