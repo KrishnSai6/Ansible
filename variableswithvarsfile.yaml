@@ -1,0 +1,11 @@
+- name: variables from vars.yaml
+  hosts: all
+  become: true
+  gather_facts: No
+  vars_files:
+    - vars.yaml
+  tasks:
+    - name: variables from the vars.yaml file
+      template:
+         src: variables.html
+         dest: /tmp/variables.html
