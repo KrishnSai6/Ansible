@@ -1,4 +1,4 @@
-- name: creating multiple user
+- name: deleting multiple user
   hosts: all
   become: true
   gather_facts: No
@@ -12,5 +12,6 @@
         name: "{{item}}"
         password: "{{ 'password@123' | password_hash('sha512') }}"
         shell: /bin/bash
-        state: present # by default present
+        state: absent # by default present
+        remove: yes
       loop: "{{user}}"
