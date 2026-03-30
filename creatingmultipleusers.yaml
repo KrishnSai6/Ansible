@@ -1,0 +1,11 @@
+- name: creating user
+  hosts: all
+  become: all
+  gather_facts: true
+  tasks:
+    - name: creating single user
+      user:
+        name: krishna
+        password: "{{ 'password@123' | password_hash('sha512') }}"
+        shell: /bin/bash
+        state: present # by default present

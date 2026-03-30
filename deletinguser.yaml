@@ -1,0 +1,12 @@
+- name: delete user
+  hosts: all
+  become: true
+  gather_facts: true
+  tasks:
+    - name: delete single user
+      user:
+        name: krishna
+        password: "{{ 'password@123' | password_hash('sha512') }}"
+        shell: /bin/bash
+        state: absent # by default present
+        remove: yes
